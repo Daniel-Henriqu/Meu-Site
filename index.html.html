@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Rodrigo Henrique | Especialista em TI, Governança & Educação</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0284c7',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49',
+                        },
+                        accent: {
+                            green: '#25D366',
+                            cyan: '#06b6d4',
+                            emerald: '#10b981'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b1120;
+            color: #f1f5f9;
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card-hover:hover {
+            transform: translateY(-4px);
+            border-color: rgba(6, 182, 212, 0.4);
+            box-shadow: 0 12px 30px -10px rgba(6, 182, 212, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #0284c7 0%, #4338ca 100%);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b1120;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0284c7;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-cyan-500 selection:text-white">
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-24 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-slate-800 text-white px-5 py-3 rounded-xl shadow-2xl border border-cyan-500/30 flex items-center space-x-3 pointer-events-none">
+        <i id="toast-icon" class="fas fa-check-circle text-emerald-400 text-lg"></i>
+        <span id="toast-message" class="text-sm font-medium">Copiado para a área de transferência!</span>
+    </div>
+
+    <!-- Sticky Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-40 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Brand / Logo -->
+                <a href="#hero" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center font-bold text-white font-display text-lg shadow-lg group-hover:scale-105 transition-transform">
+                        DRH
+                    </div>
+                    <span class="font-display font-bold text-lg text-slate-100 group-hover:text-cyan-400 transition-colors">
+                        Daniel R. Henrique
+                    </span>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-300">
+                    <a href="#resumo" class="hover:text-cyan-400 transition-colors">Sobre</a>
+                    <a href="#competencias" class="hover:text-cyan-400 transition-colors">Competências</a>
+                    <a href="#experiencia" class="hover:text-cyan-400 transition-colors">Trajetória</a>
+                    <a href="#formacao" class="hover:text-cyan-400 transition-colors">Formação</a>
+                    <a href="#contato" class="hover:text-cyan-400 transition-colors">Contato</a>
+                </nav>
+
+                <!-- Header Actions -->
+                <div class="flex items-center space-x-3">
+                    <a href="https://api.whatsapp.com/send?phone=5547996598731&text=Ol%C3%A1%20Daniel,%20encontrei%20seu%20contato%20atrav%C3%A9s%20do%20seu%20site%20profissional." 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="inline-flex items-center space-x-2 bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shadow-lg shadow-emerald-900/20 active:scale-95">
+                        <i class="fab fa-whatsapp text-lg"></i>
+                        <span class="hidden sm:inline">Falar no WhatsApp</span>
+                        <span class="sm:hidden">WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="pt-20">
+
+        <!-- Hero Section -->
+        <section id="hero" class="relative pt-8 pb-16 md:py-24 overflow-hidden">
+            <!-- Background Glow FX -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute top-1/3 right-10 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-12 text-center md:text-left">
+                    
+                    <!-- Profile Avatar Container -->
+                    <div class="relative shrink-0">
+                        <div class="w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-full p-1 bg-gradient-to-tr from-cyan-500 via-indigo-500 to-purple-500 shadow-2xl shadow-cyan-500/20 relative group">
+                            <div class="w-full h-full rounded-full overflow-hidden bg-slate-900 relative">
+                                <img src="Gemini_Generated_Image_n8pr2yn8pr2yn8pr.jpg" 
+                                     alt="Daniel Rodrigo Henrique" 
+                                     class="w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-500"
+                                     onerror="this.onerror=null; this.src='https://placehold.co/400x400/0f172a/38bdf8?text=DRH';">
+                            </div>
+                        </div>
+                        <div class="absolute bottom-0 right-1 bg-emerald-500 text-slate-950 font-bold text-xs px-3 py-1 rounded-full shadow-lg border-2 border-slate-950 flex items-center space-x-1">
+                            <span class="w-2 h-2 rounded-full bg-slate-950 animate-ping"></span>
+                            <span>Disponível</span>
+                        </div>
+                    </div>
+
+                    <!-- Intro Info -->
+                    <div class="flex-1 space-y-4">
+                        <div class="inline-flex items-center space-x-2 bg-slate-800/80 border border-slate-700/60 px-3.5 py-1.5 rounded-full text-xs sm:text-sm text-cyan-400 font-medium">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Londrina - PR | Atuação Nacional</span>
+                        </div>
+
+                        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display tracking-tight text-white leading-tight">
+                            Daniel Rodrigo Henrique
+                        </h1>
+
+                        <p class="text-lg sm:text-xl font-medium text-slate-300 max-w-2xl">
+                            Especialista em <span class="text-cyan-400 font-semibold">Gestão de TI</span>, <span class="text-indigo-400 font-semibold">Governança Corporativa</span> & <span class="text-emerald-400 font-semibold">Educação Tecnológica</span>
+                        </p>
+
+                        <p class="text-sm sm:text-base text-slate-400 max-w-2xl leading-relaxed">
+                            Mais de 20 anos impulsionando a transformação digital, liderando equipes de alta performance, gerenciando projetos ERP (Datasul/Totvs) e articulando o ecossistema de inovação e TIC.
+                        </p>
+
+                        <!-- Action Buttons (Link in Bio Style) -->
+                        <div class="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-3">
+                            <a href="https://api.whatsapp.com/send?phone=5547996598731&text=Ol%C3%A1%20Daniel,%20gostaria%20de%20conversar%20sobre%20uma%20oportunidade/projeto." 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm flex items-center justify-center space-x-3 shadow-lg shadow-emerald-900/30 transition-all transform hover:-translate-y-0.5 active:translate-y-0">
+                                <i class="fab fa-whatsapp text-xl"></i>
+                                <span>Iniciar Conversa no WhatsApp</span>
+                            </a>
+
+                            <a href="mailto:professordanielhenrique@gmail.com" 
+                               class="w-full sm:w-auto px-5 py-3.5 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-sm flex items-center justify-center space-x-2 transition-all transform hover:-translate-y-0.5">
+                                <i class="fas fa-envelope text-cyan-400"></i>
+                                <span>Enviar E-mail</span>
+                            </a>
+
+                            <button onclick="downloadVCard()" 
+                                    class="w-full sm:w-auto px-4 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 font-medium text-sm flex items-center justify-center space-x-2 transition-all">
+                                <i class="fas fa-address-card text-indigo-400"></i>
+                                <span>Salvar Contato</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Fast Highlights Counter Grid -->
+                <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="glass-card p-4 rounded-2xl text-center">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-cyan-400 font-display">20+ Anos</div>
+                        <div class="text-xs text-slate-400 font-medium mt-1">Experiência em TI & ERP</div>
+                    </div>
+                    <div class="glass-card p-4 rounded-2xl text-center">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-indigo-400 font-display">APL TIC</div>
+                        <div class="text-xs text-slate-400 font-medium mt-1">Membro Governança Londrina</div>
+                    </div>
+                    <div class="glass-card p-4 rounded-2xl text-center">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-display">WorldSkills</div>
+                        <div class="text-xs text-slate-400 font-medium mt-1">Treinador & Perito Tecnológico</div>
+                    </div>
+                    <div class="glass-card p-4 rounded-2xl text-center">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-purple-400 font-display">Mestrando</div>
+                        <div class="text-xs text-slate-400 font-medium mt-1">Ensino de Tecnologias</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Professional Summary Section -->
+        <section id="resumo" class="py-12 bg-slate-950/60 border-y border-slate-900">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="p-2.5 rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                        <i class="fas fa-user-tie text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold font-display text-white">Resumo Profissional</h2>
+                        <p class="text-xs text-slate-400">Visão geral sobre a atuação estratégica e liderança</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 sm:p-8 rounded-3xl relative overflow-hidden">
+                    <div class="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+                        <p>
+                            Profissional sênior da área de <strong class="text-white">Tecnologia da Informação</strong> com sólida trajetória acumulada em <strong class="text-cyan-400">Gestão de Projetos de TI</strong>, <strong class="text-cyan-400">Implantação e Governança de Sistemas ERP (Datasul/Totvs)</strong>, Gestão de Equipes Multidisciplinares e Coordenação Acadêmica e Técnica na área de TIC.
+                        </p>
+                        <p>
+                            Possui forte atuação e liderança no ecossistema de tecnologia regional, integrando ativamente a <strong class="text-indigo-300">Governança do APL de TIC de Londrina e Região</strong>. Demonstrada habilidade em gerenciar talentos, mapear e otimizar processos de negócios, conduzir projetos de transformação digital e garantir o perfeito alinhamento estratégico entre os objetivos do negócio e os recursos de TI.
+                        </p>
+                    </div>
+
+                    <!-- Highlight Tags -->
+                    <div class="mt-6 pt-6 border-t border-slate-800/80 flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700">
+                            <i class="fas fa-layer-group text-cyan-400 mr-1.5"></i> ERP Totvs Datasul
+                        </span>
+                        <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700">
+                            <i class="fas fa-project-diagram text-indigo-400 mr-1.5"></i> Governança de TIC
+                        </span>
+                        <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700">
+                            <i class="fas fa-users-cog text-emerald-400 mr-1.5"></i> Gestão de Equipes
+                        </span>
+                        <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700">
+                            <i class="fas fa-graduation-cap text-purple-400 mr-1.5"></i> Gestão Acadêmica
+                        </span>
+                        <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700">
+                            <i class="fas fa-trophy text-amber-400 mr-1.5"></i> WorldSkills Trainer
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Competencies Section -->
+        <section id="competencias" class="py-16">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-2">
+                            <div class="p-2.5 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+                                <i class="fas fa-brain text-xl"></i>
+                            </div>
+                            <h2 class="text-2xl font-bold font-display text-white">Principais Competências</h2>
+                        </div>
+                        <p class="text-xs text-slate-400">Domínios técnicos e estratégicos consolidados</p>
+                    </div>
+
+                    <!-- Category Filter Buttons -->
+                    <div class="flex flex-wrap gap-2" id="skill-filters">
+                        <button onclick="filterSkills('all')" class="skill-btn active px-3 py-1.5 rounded-xl text-xs font-semibold bg-cyan-600 text-white transition-all">Todos</button>
+                        <button onclick="filterSkills('governanca')" class="skill-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Governança</button>
+                        <button onclick="filterSkills('erp')" class="skill-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">ERP</button>
+                        <button onclick="filterSkills('lideranca')" class="skill-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Liderança</button>
+                        <button onclick="filterSkills('dev')" class="skill-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Desenvolvimento</button>
+                    </div>
+                </div>
+
+                <!-- Competencies Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6" id="skills-grid">
+                    
+                    <!-- Card 1 -->
+                    <div class="skill-card glass-card glass-card-hover p-6 rounded-3xl" data-category="governanca">
+                        <div class="flex items-start space-x-4">
+                            <div class="p-3.5 rounded-2xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 shrink-0">
+                                <i class="fas fa-sitemap text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white font-display mb-1">Gestão de TI & Governança</h3>
+                                <p class="text-xs text-slate-400 leading-relaxed">
+                                    Gestão Estratégica de Projetos, Análise e Mapeamento de Processos de Negócio, articulação no APL de TIC de Londrina e Região.
+                                </p>
+                                <div class="mt-4 flex flex-wrap gap-1.5">
+                                    <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-800 text-cyan-300">PMI / Metodologias Ágeis</span>
+                                    <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-800 text-cyan-300">APL Londrina</span>
+                                    <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-800 text-cyan-300">Modelagem de Processos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="skill-card glass-card glass-card-hover p-6 rounded-3xl" data-category="erp">
+                        <div class="flex items-start space-x-4">
+                            <div class="p-3.5 rounded-2xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 shrink-0">
+                                <i class="fas fa-database text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white font-display mb-1">Sistemas Corporativos (ERP)</h3>
+                                <p class="text-xs text-slate-400 leading-relaxed">
+                                    Implantação, administração, apoio operacional e suporte especializado em ERP Totvs Datasul (módulos EMS 2.06 e HCM 2.10). Integrador fiscal/SPED.
+                                </p>
+                                <div class="mt-4 flex flex-wrap gap-1.5">
+                                    <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-800 text-indigo-300">Totvs Datasul</span>
+                                    <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-800 text-indigo-300">EMS / HCM</span>
+                                    <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-800 text-indigo-300">SPED & Conformidade</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="skill-card glass-card glass-card-hover p-6 rounded-3xl" data-category="lideranca">
+                        <div class="flex items-start space-x-4">
+                            <div class="p-3.5 rounded-2xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0">
+                                <i class="fas fa-user-shield text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white font-display mb-1">Liderança & Gestão de Pessoas</h3>
+                                <p class="text-xs text-slate-400 leading-relaxed">
+                                    Supervisão e coordenação de equipes multidisciplinares e docentes, gestão de programas de capacitação técnica e desenvolvimento corporativo.
+                                </p>
+                                <div class="mt-4 flex flex-wrap gap-1.5">
+                                    <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-800 text-emerald-300">Coordenação de Equipes</span>
+                                    <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-800 text-emerald-300">Gestão Acadêmica</span>
+                                    <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-800 text-emerald-300">Capacitação</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="skill-card glass-card glass-card-hover p-6 rounded-3xl" data-category="dev">
+                        <div class="flex items-start space-x-4">
+                            <div class="p-3.5 rounded-2xl bg-purple-500/10 text-purple-400 border border-purple-500/20 shrink-0">
+                                <i class="fas fa-code text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white font-display mb-1">Desenvolvimento & Software</h3>
+                                <p class="text-xs text-slate-400 leading-relaxed">
+                                    Pós-graduado em Desenvolvimento de Software; mentoria e tutoria em projetos web, mobile, IoT e sistemas estratégicos de gestão.
+                                </p>
+                                <div class="mt-4 flex flex-wrap gap-1.5">
+                                    <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-800 text-purple-300">Desenvolvimento Web/Mobile</span>
+                                    <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-800 text-purple-300">IoT & Redes</span>
+                                    <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-800 text-purple-300">Mentoria Técnica</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Career Timeline Section -->
+        <section id="experiencia" class="py-16 bg-slate-950/60 border-t border-slate-900">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center space-x-3 mb-10">
+                    <div class="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                        <i class="fas fa-briefcase text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold font-display text-white">Trajetória Profissional</h2>
+                        <p class="text-xs text-slate-400">Histórico de atuação e posições ocupadas</p>
+                    </div>
+                </div>
+
+                <div class="relative border-l-2 border-slate-800 ml-4 sm:ml-6 space-y-12">
+
+                    <!-- Experience 1: SENAI PR -->
+                    <div class="relative pl-6 sm:pl-8 group">
+                        <!-- Dot Indicator -->
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-emerald-500 border-4 border-slate-950 group-hover:scale-125 transition-transform"></div>
+                        
+                        <div class="glass-card p-6 rounded-3xl">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                                <div>
+                                    <span class="inline-block px-2.5 py-0.5 rounded-md bg-emerald-500/10 text-emerald-400 font-semibold text-xs border border-emerald-500/20 mb-1">
+                                        Out/2011 - Atual (Cargo Atual)
+                                    </span>
+                                    <h3 class="text-xl font-bold text-white font-display">Supervisor de Área de TIC / Técnico de Ensino Pleno</h3>
+                                    <p class="text-sm font-semibold text-cyan-400">SENAI - PR | Londrina/PR</p>
+                                </div>
+                            </div>
+
+                            <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300 list-disc list-inside leading-relaxed mt-4">
+                                <li>
+                                    <strong class="text-white">Supervisão e Gestão da Área de TIC:</strong> Coordenação e execução pedagógica/técnica dos cursos de Desenvolvimento de Sistemas, Informática para Internet, Internet das Coisas (IoT) e Redes de Computadores.
+                                </li>
+                                <li>
+                                    <strong class="text-white">Ecossistema & Governança Regional:</strong> Representante oficial do SENAI na Governança do Arranjo Produtivo Local (APL) de TIC de Londrina e Região.
+                                </li>
+                                <li>
+                                    <strong class="text-white">Treinador WorldSkills (Perito Técnico):</strong> Atuação destacada na formação de competidores nas modalidades:
+                                    <div class="mt-2 ml-4 grid grid-cols-1 sm:grid-cols-3 gap-2">
+                                        <div class="bg-slate-900/80 p-2 rounded-xl border border-slate-800 text-xs">
+                                            <span class="font-bold text-amber-400">#08</span> Dev. Aplicativos Móveis
+                                        </div>
+                                        <div class="bg-slate-900/80 p-2 rounded-xl border border-slate-800 text-xs">
+                                            <span class="font-bold text-amber-400">#09</span> Soluções de Software
+                                        </div>
+                                        <div class="bg-slate-900/80 p-2 rounded-xl border border-slate-800 text-xs">
+                                            <span class="font-bold text-amber-400">#17</span> Tecnologias Web
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    Capacitação contínua de profissionais e estudantes focada em metodologias ágeis e tecnologias aplicadas à indústria e serviços.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Experience 2: COGNA -->
+                    <div class="relative pl-6 sm:pl-8 group">
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-cyan-500 border-4 border-slate-950 group-hover:scale-125 transition-transform"></div>
+                        
+                        <div class="glass-card p-6 rounded-3xl">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                                <div>
+                                    <span class="inline-block px-2.5 py-0.5 rounded-md bg-cyan-500/10 text-cyan-400 font-semibold text-xs border border-cyan-500/20 mb-1">
+                                        Out/2023 - Nov/2025
+                                    </span>
+                                    <h3 class="text-xl font-bold text-white font-display">Coordenador de Cursos / Gestão Acadêmica de TIC</h3>
+                                    <p class="text-sm font-semibold text-indigo-400">COGNA | Londrina/PR</p>
+                                </div>
+                            </div>
+
+                            <ul class="space-y-2 text-xs sm:text-sm text-slate-300 list-disc list-inside leading-relaxed mt-4">
+                                <li>Gestão acadêmica, operacional e pedagógica dos cursos vinculados aos eixos tecnológicos da instituição.</li>
+                                <li>Liderança e articulação de equipes multidisciplinares e corpo docente em formatos de ensino presencial e EAD.</li>
+                                <li>Planejamento estratégico de matrizes curriculares e alinhamento contínuo com as demandas emergentes do mercado de TIC.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Experience 3: Madeireira EK -->
+                    <div class="relative pl-6 sm:pl-8 group">
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-purple-500 border-4 border-slate-950 group-hover:scale-125 transition-transform"></div>
+                        
+                        <div class="glass-card p-6 rounded-3xl">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                                <div>
+                                    <span class="inline-block px-2.5 py-0.5 rounded-md bg-purple-500/10 text-purple-400 font-semibold text-xs border border-purple-500/20 mb-1">
+                                        1996 - Jan/2017
+                                    </span>
+                                    <h3 class="text-xl font-bold text-white font-display">Gerente de Projetos de TI / Controller de Sistemas</h3>
+                                    <p class="text-sm font-semibold text-purple-300">Madeireira EK Ltda | Mafra/SC</p>
+                                </div>
+                            </div>
+
+                            <ul class="space-y-2 text-xs sm:text-sm text-slate-300 list-disc list-inside leading-relaxed mt-4">
+                                <li><strong class="text-white">Gerência de Projetos ERP:</strong> Liderança na implantação, parametrização e customização dos sistemas ERP Datasul/Totvs (módulos EMS 2.06 e HCM 2.10).</li>
+                                <li><strong class="text-white">Análise de Processos:</strong> Mapeamento integral de processos fabris e administrativos, apoio operacional e especificação de melhorias operacionais.</li>
+                                <li><strong class="text-white">Integração Fiscal/Contábil:</strong> Interface técnica entre TI, contabilidade e obrigações fiscais digitais (SPEDs), garantindo a conformidade regulatória.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Academic Background Section -->
+        <section id="formacao" class="py-16">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center space-x-3 mb-8">
+                    <div class="p-2.5 rounded-xl bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                        <i class="fas fa-graduation-cap text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold font-display text-white">Formação Acadêmica & Certificações</h2>
+                        <p class="text-xs text-slate-400">Base acadêmica sólida e contínuo aperfeiçoamento</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                    <!-- Mestrado -->
+                    <div class="glass-card glass-card-hover p-6 rounded-3xl border-l-4 border-l-purple-500">
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-purple-500/20 text-purple-300">2024 - 2026 (Em andamento)</span>
+                            <i class="fas fa-award text-purple-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white font-display mt-3">Mestrado Profissional</h3>
+                        <p class="text-xs font-medium text-purple-400 mb-2">Metodologias para o Ensino de Linguagens e suas Tecnologias</p>
+                        <p class="text-xs text-slate-400">UNOPAR - Universidade Norte do Paraná (Londrina/PR)</p>
+                    </div>
+
+                    <!-- Pós 1: Dev Software -->
+                    <div class="glass-card glass-card-hover p-6 rounded-3xl border-l-4 border-l-cyan-500">
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-cyan-500/20 text-cyan-300">2012 - 2013</span>
+                            <i class="fas fa-certificate text-cyan-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white font-display mt-3">Pós-Graduação Latu Sensu</h3>
+                        <p class="text-xs font-medium text-cyan-400 mb-2">Desenvolvimento de Software</p>
+                        <p class="text-xs text-slate-400">UDESC - Universidade do Estado de Santa Catarina</p>
+                    </div>
+
+                    <!-- Pós 2: Docência -->
+                    <div class="glass-card glass-card-hover p-6 rounded-3xl border-l-4 border-l-indigo-500">
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-indigo-500/20 text-indigo-300">2015 - 2016</span>
+                            <i class="fas fa-chalkboard-teacher text-indigo-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white font-display mt-3">Pós-Graduação Latu Sensu</h3>
+                        <p class="text-xs font-medium text-indigo-400 mb-2">Docência na Educação Profissional</p>
+                        <p class="text-xs text-slate-400">SENAI / CETIQT</p>
+                    </div>
+
+                    <!-- Graduação -->
+                    <div class="glass-card glass-card-hover p-6 rounded-3xl border-l-4 border-l-emerald-500">
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-300">1996 - 1998</span>
+                            <i class="fas fa-university text-emerald-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white font-display mt-3">Graduação Superior</h3>
+                        <p class="text-xs font-medium text-emerald-400 mb-2">Tecnologia em Processamento de Dados</p>
+                        <p class="text-xs text-slate-400">UnC - Universidade do Contestado</p>
+                    </div>
+
+                </div>
+
+                <!-- Licenciatura & Cursos Complementares -->
+                <div class="mt-8 glass-card p-6 rounded-3xl">
+                    <h4 class="text-sm font-bold text-white font-display mb-4 flex items-center">
+                        <i class="fas fa-book-open text-cyan-400 mr-2"></i> Complementação Pedagógica & Cursos Relevantes
+                    </h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="p-3 rounded-2xl bg-slate-900/70 border border-slate-800">
+                            <div class="font-semibold text-xs text-slate-200">Licenciatura Pedagógica</div>
+                            <div class="text-[11px] text-slate-400 mt-0.5">Faculdade Avantis (2011-2012)</div>
+                        </div>
+                        <div class="p-3 rounded-2xl bg-slate-900/70 border border-slate-800">
+                            <div class="font-semibold text-xs text-slate-200">Planejamento Estratégico</div>
+                            <div class="text-[11px] text-slate-400 mt-0.5">Universidade do Contestado (UnC)</div>
+                        </div>
+                        <div class="p-3 rounded-2xl bg-slate-900/70 border border-slate-800">
+                            <div class="font-semibold text-xs text-slate-200">Gestão e Processos & Idiomas</div>
+                            <div class="text-[11px] text-slate-400 mt-0.5">SENAI/PR | Inglês Técnico</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact & Bio Card Modal Section -->
+        <section id="contato" class="py-16 bg-slate-950/80 border-t border-slate-900">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                
+                <div class="inline-flex p-3 rounded-2xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 mb-4">
+                    <i class="fas fa-paper-plane text-2xl"></i>
+                </div>
+
+                <h2 class="text-3xl font-extrabold font-display text-white mb-2">Vamos Conectar?</h2>
+                <p class="text-sm text-slate-400 max-w-lg mx-auto mb-8">
+                    Estou sempre aberto a diálogos sobre gestão de TI, consultoria em ERP, parcerias acadêmicas e projetos de inovação.
+                </p>
+
+                <!-- Quick Copy Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+                    
+                    <!-- WhatsApp -->
+                    <a href="https://api.whatsapp.com/send?phone=5547996598731" 
+                       target="_blank"
+                       class="glass-card glass-card-hover p-5 rounded-2xl flex flex-col items-center justify-center space-y-2 group">
+                        <i class="fab fa-whatsapp text-3xl text-emerald-400 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-semibold text-slate-400">WhatsApp / Celular</span>
+                        <span class="text-sm font-bold text-white">(47) 99659-8731</span>
+                    </a>
+
+                    <!-- Email -->
+                    <div onclick="copyText('professordanielhenrique@gmail.com', 'E-mail copiado!')" 
+                         class="glass-card glass-card-hover p-5 rounded-2xl flex flex-col items-center justify-center space-y-2 cursor-pointer group">
+                        <i class="fas fa-envelope text-3xl text-cyan-400 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-semibold text-slate-400">Clique p/ Copiar E-mail</span>
+                        <span class="text-xs font-bold text-white truncate max-w-full">professordanielhenrique@gmail.com</span>
+                    </div>
+
+                    <!-- Location -->
+                    <div class="glass-card glass-card-hover p-5 rounded-2xl flex flex-col items-center justify-center space-y-2 group sm:col-span-2 lg:col-span-1">
+                        <i class="fas fa-map-marked-alt text-3xl text-indigo-400 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs font-semibold text-slate-400">Localização</span>
+                        <span class="text-sm font-bold text-white">Londrina - PR</span>
+                    </div>
+
+                </div>
+
+                <!-- Share QR Code Button -->
+                <div class="inline-flex flex-col items-center space-y-3">
+                    <button onclick="toggleQRModal()" class="px-5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition-all">
+                        <i class="fas fa-qrcode mr-2 text-cyan-400"></i> Compartilhar QR Code do Site
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-slate-950 border-t border-slate-900 text-center text-xs text-slate-500">
+        <div class="max-w-5xl mx-auto px-4">
+            <p>© 2026 Daniel Rodrigo Henrique. Todos os direitos reservados.</p>
+            <p class="mt-1 text-slate-600">Site profissional otimizado para navegação móvel e desktop.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Widget Button -->
+    <a href="https://api.whatsapp.com/send?phone=5547996598731&text=Ol%C3%A1%20Daniel!" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       title="Conversar no WhatsApp"
+       class="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-emerald-500 text-white flex items-center justify-center text-2xl shadow-2xl hover:bg-emerald-400 transition-all hover:scale-110 active:scale-95 group">
+        <i class="fab fa-whatsapp"></i>
+        <span class="absolute right-16 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-xl shadow-lg border border-slate-800 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            Falar com Daniel
+        </span>
+    </a>
+
+    <!-- QR Code Modal -->
+    <div id="qr-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="glass-card p-6 rounded-3xl max-w-sm w-full text-center relative border border-slate-700/60 shadow-2xl">
+            <button onclick="toggleQRModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2">
+                <i class="fas fa-times text-lg"></i>
+            </button>
+            <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mx-auto mb-3 border border-cyan-500/20">
+                <i class="fas fa-qrcode text-xl"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white font-display">Escaneie para Abrir</h3>
+            <p class="text-xs text-slate-400 mt-1 mb-4">Acesse este portfólio diretamente no seu celular</p>
+            
+            <div class="p-4 bg-white rounded-2xl inline-block shadow-inner">
+                <!-- Dynamic QR Code generated via API -->
+                <img id="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://api.whatsapp.com/send?phone=5547996598731" alt="QR Code" class="w-44 h-44 mx-auto">
+            </div>
+
+            <p class="text-[11px] text-slate-400 mt-4">Daniel Rodrigo Henrique - Londrina/PR</p>
+        </div>
+    </div>
+
+    <!-- JavaScript Functions -->
+    <script>
+        // Skill Filter Functionality
+        function filterSkills(category) {
+            const cards = document.querySelectorAll('.skill-card');
+            const buttons = document.querySelectorAll('.skill-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('active', 'bg-cyan-600', 'text-white');
+                btn.classList.add('bg-slate-800', 'text-slate-300');
+            });
+
+            event.currentTarget.classList.remove('bg-slate-800', 'text-slate-300');
+            event.currentTarget.classList.add('active', 'bg-cyan-600', 'text-white');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Copy Text Helper (Standard Clipboard fallback without alert)
+        function copyText(text, successMsg) {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast(successMsg);
+                });
+            } else {
+                // Fallback method for iframe environments
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = "fixed";
+                textArea.style.left = "-999999px";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showToast(successMsg);
+                } catch (err) {
+                    showToast("Erro ao copiar");
+                }
+                document.body.removeChild(textArea);
+            }
+        }
+
+        // Custom Toast Notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = message;
+            
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Download vCard Contact File
+        function downloadVCard() {
+            const vcardData = 
+`BEGIN:VCARD
+VERSION:3.0
+FN:Daniel Rodrigo Henrique
+TITLE:Especialista em TI, Governança & Educação
+TEL;TYPE=CELL:+5547996598731
+EMAIL:professordanielhenrique@gmail.com
+ADR;TYPE=WORK:;;Londrina;PR;;Brasil
+NOTE:Gestão de TI, Governança ERP Totvs Datasul, WorldSkills Trainer, APL TIC Londrina.
+END:VCARD`;
+
+            const blob = new Blob([vcardData], { type: 'text/vcard;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'Daniel_Rodrigo_Henrique.vcf');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            showToast("vCard gerado e baixado!");
+        }
+
+        // QR Code Modal Toggle
+        function toggleQRModal() {
+            const modal = document.getElementById('qr-modal');
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            } else {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        }
+    </script>
+</body>
+</html>
